@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { DM_Sans, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -15,6 +15,13 @@ const cormorant = Cormorant_Garamond({
   weight: ['300', '400', '600', '700'],
   style: ['italic', 'normal']
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mehermakeover.com'),
@@ -77,12 +84,6 @@ export const metadata: Metadata = {
     'max-snippet': -1,
     'max-video-preview': -1,
     googleBot: 'index, follow',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
   },
   category: 'Beauty & Wellness',
 }

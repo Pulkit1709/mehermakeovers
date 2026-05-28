@@ -19,6 +19,11 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [active, setActive] = useState('home')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,6 +41,8 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  if (!mounted) return null
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -48,7 +55,7 @@ export function Header() {
       }`}
     >
       <nav className="luxury-container flex min-h-20 items-center justify-between">
-        <Link
+        <a
           href="#home"
           className="group flex items-center gap-3 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
@@ -66,7 +73,7 @@ export function Header() {
             <span className="serif block text-xl leading-none text-foreground">Meher Makeover</span>
             <span className="mt-1 block text-[10px] uppercase tracking-[0.32em] text-primary">Luxury salon</span>
           </span>
-        </Link>
+        </a>
 
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
