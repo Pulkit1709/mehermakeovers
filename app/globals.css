@@ -1,0 +1,260 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0f0f10;
+  --foreground: #f8f5f2;
+  --card: #161618;
+  --card-foreground: #f8f5f2;
+  --popover: #161618;
+  --popover-foreground: #f8f5f2;
+  --primary: #d4af7f;
+  --primary-foreground: #0f0f10;
+  --secondary: #b88a44;
+  --secondary-foreground: #0f0f10;
+  --muted: #252326;
+  --muted-foreground: #9f9f9f;
+  --accent: #d4af7f;
+  --accent-foreground: #0f0f10;
+  --destructive: #EF4444;
+  --destructive-foreground: #F5F1E8;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: #161618;
+  --ring: #d4af7f;
+  --chart-1: #d4af7f;
+  --chart-2: #b88a44;
+  --chart-3: #f8f5f2;
+  --chart-4: #9f9f9f;
+  --chart-5: #5b5148;
+  --radius: 0.5rem;
+  --sidebar: #0f0f10;
+  --sidebar-foreground: #f8f5f2;
+  --sidebar-primary: #d4af7f;
+  --sidebar-primary-foreground: #0f0f10;
+  --sidebar-accent: #b88a44;
+  --sidebar-accent-foreground: #f8f5f2;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #d4af7f;
+}
+
+/* Premium luxury styles */
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+/* Typography system */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading font-semibold;
+}
+
+/* Luxury utility classes */
+.luxury-container {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+}
+
+.serif {
+  @apply font-heading;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
+}
+
+button, a {
+  @apply transition-all duration-300;
+}
+
+/* Premium glass morphism effect */
+.glassmorphism {
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+}
+
+.glassmorphism-dark {
+  @apply border border-white/8 bg-background/40 backdrop-blur-2xl;
+}
+
+/* Premium gradients */
+.gradient-primary {
+  @apply bg-gradient-to-br from-primary/20 to-transparent;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-br from-primary via-primary to-secondary bg-clip-text text-transparent;
+}
+
+/* Smooth animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 127, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(212, 175, 127, 0.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite;
+}
+
+/* Premium focus states */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary/50 transition-colors duration-300 hover:bg-primary;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary/30 text-foreground;
+}
+
+.dark {
+  --background: #0A0509;
+  --foreground: #F5F1E8;
+  --card: #1A1218;
+  --card-foreground: #F5F1E8;
+  --popover: #1A1218;
+  --popover-foreground: #F5F1E8;
+  --primary: #D4AF37;
+  --primary-foreground: #0A0509;
+  --secondary: #C9797A;
+  --secondary-foreground: #F5F1E8;
+  --muted: #3A3238;
+  --muted-foreground: #A8A4A0;
+  --accent: #D4AF37;
+  --accent-foreground: #0A0509;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #F5F1E8;
+  --border: #2A2228;
+  --input: #1A1218;
+  --ring: #D4AF37;
+  --chart-1: #D4AF37;
+  --chart-2: #C9797A;
+  --chart-3: #8B7355;
+  --chart-4: #A8A4A0;
+  --chart-5: #6B6369;
+  --sidebar: #0A0509;
+  --sidebar-foreground: #F5F1E8;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #0A0509;
+  --sidebar-accent: #C9797A;
+  --sidebar-accent-foreground: #F5F1E8;
+  --sidebar-border: #2A2228;
+  --sidebar-ring: #D4AF37;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 35%, transparent);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .luxury-container {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .serif {
+    font-family: var(--font-heading);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .gold-line {
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  }
+}
