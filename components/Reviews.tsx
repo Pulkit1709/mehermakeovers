@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { CheckCircle2, Star } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { easeOut } from 'motion-utils'
 import { reviews } from '@/lib/site-data'
 
 export function Reviews() {
@@ -13,14 +12,17 @@ export function Reviews() {
     const interval = window.setInterval(() => {
       setIndex((value) => (value + 1) % reviews.length)
     }, 5200)
+
     return () => window.clearInterval(interval)
   }, [])
 
   const active = reviews[index]
 
   return (
-    <section id="reviews" className="relative border-y border-white/10 bg-card py-24 sm:py-32">
-      {/* Background animation */}
+    <section
+      id="reviews"
+      className="relative border-y border-white/10 bg-card py-24 sm:py-32"
+    >
       <motion.div
         animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 10, repeat: Infinity, delay: 2 }}
@@ -36,12 +38,17 @@ export function Reviews() {
           className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-primary">Social proof</p>
+            <p className="text-xs uppercase tracking-[0.34em] text-primary">
+              Social proof
+            </p>
+
             <h2 className="serif mt-4 text-balance text-5xl font-semibold leading-none sm:text-6xl">
               Loved for detail, calm, and polish.
             </h2>
+
             <p className="mt-6 text-base leading-8 text-muted-foreground">
-              Clients choose Meher Makeover for work that feels elevated without losing softness, comfort, or personal expression.
+              Clients choose Meher Makeover for work that feels elevated
+              without losing softness, comfort, or personal expression.
             </p>
           </div>
 
@@ -63,18 +70,26 @@ export function Reviews() {
                   <motion.span
                     key={starIndex}
                     animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 4, repeat: Infinity, delay: starIndex * 0.2 }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: starIndex * 0.2,
+                    }}
                   >
                     <Star aria-hidden className="size-5 fill-current" />
                   </motion.span>
                 ))}
               </motion.div>
+
               <motion.span
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-muted-foreground"
               >
-                <CheckCircle2 aria-hidden className="size-4 text-primary" />
+                <CheckCircle2
+                  aria-hidden
+                  className="size-4 text-primary"
+                />
                 Verified client
               </motion.span>
             </div>
@@ -85,7 +100,10 @@ export function Reviews() {
                 initial={{ opacity: 0, y: 16, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -16, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: easeOut }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeOut',
+                }}
               >
                 <motion.blockquote
                   className="serif text-balance text-3xl leading-tight text-foreground sm:text-4xl"
@@ -95,6 +113,7 @@ export function Reviews() {
                 >
                   "{active.text}"
                 </motion.blockquote>
+
                 <motion.figcaption
                   className="mt-8 flex items-center gap-4"
                   initial={{ opacity: 0, x: -16 }}
@@ -107,9 +126,14 @@ export function Reviews() {
                   >
                     {active.initials}
                   </motion.span>
+
                   <span>
-                    <span className="block font-semibold">{active.name}</span>
-                    <span className="text-sm text-muted-foreground">{active.service}</span>
+                    <span className="block font-semibold">
+                      {active.name}
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      {active.service}
+                    </span>
                   </span>
                 </motion.figcaption>
               </motion.figure>
@@ -131,7 +155,9 @@ export function Reviews() {
                   whileHover={{ scaleY: 1.5 }}
                   whileTap={{ scaleY: 1 }}
                   className={`h-1.5 flex-1 origin-left transition duration-300 ${
-                    reviewIndex === index ? 'bg-primary' : 'bg-white/12 hover:bg-white/30'
+                    reviewIndex === index
+                      ? 'bg-primary'
+                      : 'bg-white/12 hover:bg-white/30'
                   }`}
                 />
               ))}
