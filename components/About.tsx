@@ -36,8 +36,8 @@ export function About() {
           />
           <div className="relative aspect-[4/5] overflow-hidden border border-white/10 bg-background sm:aspect-[5/4] lg:aspect-[4/5]">
             <Image
-              src="/salon-interior.jpg"
-              alt="Private luxury salon space at Meher Makeover"
+              src="/ai-saloon-interior.png"
+              alt="AI-generated luxury salon interior at Meher Makeover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

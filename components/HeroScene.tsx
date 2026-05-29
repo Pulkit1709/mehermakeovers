@@ -128,20 +128,25 @@ export function HeroScene() {
 
       // Update floating meshes
       scene.children.forEach((child) => {
-        if (child instanceof THREE.Mesh && child !== particles && child.userData.velocity) {
-          child.rotation.x += child.userData.velocity.x
-          child.rotation.y += child.userData.velocity.y
-          child.rotation.z += child.userData.velocity.z
+        if (child === particles) return
+        if (!(child instanceof THREE.Mesh)) return
 
-          child.position.x += child.userData.velocity.x * 0.2
-          child.position.y += child.userData.velocity.y * 0.2
-          child.position.z += child.userData.velocity.z * 0.2
+        const mesh = child as THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>
+        const velocity = mesh.userData.velocity as { x: number; y: number; z: number } | undefined
+        if (!velocity) return
 
-          // Bounce boundaries
-          if (Math.abs(child.position.x) > 100) child.userData.velocity.x *= -1
-          if (Math.abs(child.position.y) > 100) child.userData.velocity.y *= -1
-          if (Math.abs(child.position.z) > 100) child.userData.velocity.z *= -1
-        }
+        mesh.rotation.x += velocity.x
+        mesh.rotation.y += velocity.y
+        mesh.rotation.z += velocity.z
+
+        mesh.position.x += velocity.x * 0.2
+        mesh.position.y += velocity.y * 0.2
+        mesh.position.z += velocity.z * 0.2
+
+        // Bounce boundaries
+        if (Math.abs(mesh.position.x) > 100) velocity.x *= -1
+        if (Math.abs(mesh.position.y) > 100) velocity.y *= -1
+        if (Math.abs(mesh.position.z) > 100) velocity.z *= -1
       })
 
       // Camera follows mouse

@@ -45,11 +45,11 @@ export const metadata: Metadata = {
     siteName: 'Meher Makeover',
     images: [
       {
-        url: '/salon-interior.jpg',
+        url: '/ai-saloon-interior.png',
         width: 1200,
         height: 630,
-        alt: 'Meher Makeover luxury salon interior in Agra',
-        type: 'image/jpeg',
+        alt: 'AI-generated luxury salon interior image for Meher Makeover',
+        type: 'image/png',
       },
     ],
     url: 'https://mehermakeover.com',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Meher Makeover | Luxury Salon in Agra',
     description: 'Premium unisex salon for bridal, hair, makeup, nails, and skin rituals.',
-    images: ['/salon-interior.jpg'],
+    images: ['/ai-saloon-interior.png'],
   },
   icons: {
     icon: [
@@ -104,7 +104,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'BeautySalon',
               name: 'Meher Makeover',
-              image: '/salon-interior.jpg',
+              image: '/ai-saloon-interior.png',
               telephone: '+918057067771',
               address: {
                 '@type': 'PostalAddress',

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { easeOut } from 'motion-utils'
 import { whatsappLink } from '@/lib/site-data'
 
 const navLinks = [
@@ -47,7 +48,7 @@ export function Header() {
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.8, ease: easeOut }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'border-b border-white/10 bg-background/60 shadow-2xl shadow-black/40 backdrop-blur-2xl'

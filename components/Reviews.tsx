@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { CheckCircle2, Star } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { easeOut } from 'motion-utils'
 import { reviews } from '@/lib/site-data'
 
 export function Reviews() {
@@ -84,7 +85,7 @@ export function Reviews() {
                 initial={{ opacity: 0, y: 16, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -16, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.5, ease: easeOut }}
               >
                 <motion.blockquote
                   className="serif text-balance text-3xl leading-tight text-foreground sm:text-4xl"

@@ -61,7 +61,7 @@ export const services = [
     title: 'Relaxation Therapy',
     shortTitle: 'Spa',
     description: 'Head massage, body spa, and calming wellness rituals for a softer reset.',
-    image: '/salon-interior.jpg',
+    image: '/ai-saloon-interior.png',
     price: 'From Rs. 700',
     duration: '30-90 min',
   },
@@ -73,7 +73,7 @@ export const galleryItems = [
   { id: 3, category: 'skin', title: 'Radiance Ritual', image: '/skin-treatment.png', tall: true },
   { id: 4, category: 'nails', title: 'Champagne Nail Detail', image: '/nail-art.png' },
   { id: 5, category: 'bridal', title: 'Ceremony Ready', image: '/bridal-makeup.png' },
-  { id: 6, category: 'studio', title: 'Private Salon Suite', image: '/salon-interior.jpg' },
+  { id: 6, category: 'studio', title: 'Private Salon Suite', image: '/ai-saloon-interior.png' },
 ]
 
 export const reviews = [
